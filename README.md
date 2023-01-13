@@ -1,2 +1,4 @@
-# Local
-Social media for keeping on people local in your area
+#Website for the First Baptist Church in Bemidji
+
+Current domain: https://www.fbcbemidji.org/
+Inspiration website: https://www.bemidjicovenant.com
