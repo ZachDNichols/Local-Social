@@ -2,16 +2,14 @@
 
 </script>
 <style>
-    * {
-        position: relative;
-        left: 0px;
-        top: 0px;
+    body{
+        margin: 0px;
+        padding: 0px;
     }
-
     .navBar {
         width: 100%;
         height: 2em;
-        background-color: rgb(88, 247, 194);
+        background-color: hsl(185, 24%, 48%);
     }
     .navList {
         text-decoration: none;
@@ -21,20 +19,19 @@
         justify-content: flex-end;
         align-items: center;
     }
-    .navItem {
-        flex: auto;
-    }
     .grow{
-        flex-grow: 2;
+        flex-grow: 1;
     }
 </style>
 <main>
-    <div class="navBar">
-        <ul class="navList">
-            <li class="navItem">Logo</li>
-            <li class="navItem grow"></li>
-            <li class="navItem">some info</li>
-            <li class="navItem">some more info</li>
-        </ul>
-    </div>
+    <body>
+        <div class="navBar">
+            <ul class="navList">
+                <li class="navItem">Logo</li>
+                <li class="navItem grow"></li>
+                <li class="navItem">some info</li>
+                <li class="navItem">some more info</li>
+            </ul>
+        </div>
+    </body>
 </main>

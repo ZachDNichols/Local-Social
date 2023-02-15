@@ -36,7 +36,8 @@
     <NormalCard {...user3}/>
 </main> 
 <style>
-    * {
+    main {
+        margin: 0px;
         background-color: hsl(185, 42%, 90%);
     }
 </style>
