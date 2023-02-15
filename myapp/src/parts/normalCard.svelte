@@ -3,20 +3,22 @@
 -->
 
 <script>
+    import { blur } from 'svelte/transition';
     export let userName = "Anonymous";
     export let description = "";
     export let imageSrc;
     export let userId;
     export let liked = false;
+    const org = liked;
 
-    function addLike() {
-        liked = true;
-        //send data to database to like
+    function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
     }
 
-    function removeLike() {
-        liked = false;
-        //send data to database to remove like
+    function like() {
+        liked = !liked;
+        console.log(liked)
+        
     }
 </script>
 
@@ -29,12 +31,12 @@
 .card {
     width: 62%;
     color: white;
-    background-color: hsl(185, 24%, 48%);
+    background-color: hsl(0, 0%, 47%);
     border: 0px black solid;
     border-radius: 25px;
     margin: 2em 1em;
     padding: 1.25em;
-    box-shadow: 0px 0px .7em rgb(149, 149, 149);
+    box-shadow: 0px 0px .7em rgb(132, 132, 132);
 }
 
 .card a {
@@ -57,7 +59,7 @@
 }
 
 .nameElement:hover {
-    color: hsl(185, 35%, 20%);
+    color: hsl(0, 100%, 77%);
     transition: .3s;
 }
 .nameElement:not(:hover){
@@ -68,35 +70,43 @@
     flex-grow: 1;
 }
 
-.likeButtonElement {
+#likeButtonElement {
     border: 0px solid;
     background-color: transparent !important;
-    font-size: 2.5rem;
     margin: 0px;
     padding: 0px .5rem 0px 0px;
     cursor: pointer;
+    transition: .1s;
 }
 
-.likeColor {
-    color: hsl(185, 35%, 20%);
-}
-.likeColor:active {
-    color: white;
-    transition: .3s;
+#likedContent {
+    transform: scale(270%);
+    color: hsl(0, 100%, 77%);
+    transition: color 2s ease-out;
 }
 
-.unlikeColor {
+#notLikedContent {
+    transform: scale(240%);
     color: white;
-}
-.unlikeColor:active {
-    color: hsl(185, 35%, 20%);
-    transition: .3s;
+    transition: color 2s ease-out;
+
 }
 
 .descriptionElement {
     font-style: italic;
     margin: 0px;
 }
+
+#notLikedContent:hover {
+    transform: scale(270%);
+    transition: .2s;
+}
+
+#notLikedContent:not(:hover) {
+    transform: scale(240%);
+    transition: .2s;
+}
+
 
 </style>
 <main>
@@ -106,17 +116,14 @@
             <a href="www.localsocial.com/user/{userId}.html">
                 <h3 class="nameElement">{userName}</h3>
             </a>
-
             <div class="growElement"></div>
-            {#if liked}
-            <button type="button" class="likeButtonElement likeColor" on:click={removeLike}>
-                &#9825
+            <button type="button" id="likeButtonElement" on:click={like}>
+                {#if liked}
+                    <div id="likedContent" >&#9829;</div>
+                {:else}
+                    <div id="notLikedContent" >&#9825;</div>
+                {/if}
             </button>
-            {:else}
-            <button type="button" class="likeButtonElement unlikeColor" on:click={addLike}>
-                &#9825
-            </button>
-            {/if}
         </div>
         <p class="descriptionElement">{description}</p>
     </div>
