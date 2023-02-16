@@ -1,5 +1,5 @@
 <script>
-
+    export let imageProfile = "";
 </script>
 <style>
     body{
@@ -29,6 +29,12 @@
     #logo {
         margin-top: .5em;
     }
+    #profileImage {
+        border-radius: 50%;
+        border: 2px solid black;
+        margin-top: .3em;
+        margin-right: 1em;
+    }
 </style>
 <main>
     <body>
@@ -42,8 +48,8 @@
                 <li class="navItem grow"></li>
                 <li class="navItem">some info</li>
                 <li class="navItem">
-                    <a href=".">
-                        <img src="" alt="">
+                    <a href="rightSideBar.svelte">
+                        <img src="{imageProfile}" alt="" width="50em" id="profileImage">
                     </a>
                 </li>
             </ul>

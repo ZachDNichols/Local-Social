@@ -27,17 +27,17 @@
 
 .card {
     width: 62%;
-    color: rgb(0, 0, 0);
-    background-color: hsl(0, 0%, 82%);
+    color: rgb(255, 255, 255);
+    background-color: hsl(0, 0%, 50%);
     border: 0px black solid;
     border-radius: 10px;
     margin: 2em 1em;
     padding: 1.25em;
-    box-shadow: 0px 0px .7em rgb(132, 132, 132);
+    box-shadow: 0px 0px .7em rgb(34, 34, 34);
 }
 
 .card a {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     text-decoration: none;
 }
 
@@ -83,6 +83,7 @@
 
 #notLikedContent {
     color: rgb(0, 0, 0);
+    transform: scale(240%);
 }
 
 .descriptionElement {
@@ -93,15 +94,17 @@
 #notLikedContent:hover {
     color: hsl(0, 100%, 77%);
     transform: scale(270%);
+    transition: .2s;
 }
 
 #notLikedContent:not(:hover) {
-    transition: .05s ease-out;
+    transition: .2s ease-out;
     transform: scale(240%);
 }
 
 
 </style>
+
 <main>
     <div class="card">
         <img src="{imageSrc}" alt="" class="image">

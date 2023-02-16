@@ -3,6 +3,7 @@
     import rightSideBar from './parts/rightSideBar.svelte';
     import textCard from './parts/textCard.svelte';
     import NormalCard from './parts/normalCard.svelte';
+    import Profile from './parts/profile.svelte';
 
     let user1 = {
         imageSrc: "https://petapixel.com/assets/uploads/2022/08/fdfs11-800x533.jpg",
@@ -27,17 +28,23 @@
         description: "I hate rats. They suck!",
         liked: false
     }
+
+    let user =  {
+        imageProfile: "https://cdn.pixabay.com/photo/2021/04/05/12/39/man-6153298_960_720.jpg",
+        userName: "Ethan",
+        userId: 1234
+    }
     
 </script>
 <main>
-    <MainHeader />
+    <MainHeader {...user}/>
     <NormalCard {...user1}/>
     <NormalCard {...user2}/>
-    <NormalCard {...user3}/>
+    <NormalCard {...user3}/>       
 </main> 
 <style>
     main {
         margin: 0px;
-        background-color: hsl(0, 0%, 100%);
+        background-color: hsl(0, 0%, 17%);
     }
 </style>
