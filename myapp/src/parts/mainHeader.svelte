@@ -35,14 +35,14 @@
         <div class="navBar">
             <ul class="navList">
                 <li class="navItem">
-                    <a href="">
+                    <a href=".">
                         <img src="localSocialHorizontal.svg" alt="" height="45em" id="logo">
                     </a>
                 </li>
                 <li class="navItem grow"></li>
                 <li class="navItem">some info</li>
                 <li class="navItem">
-                    <a href="">
+                    <a href=".">
                         <img src="" alt="">
                     </a>
                 </li>
