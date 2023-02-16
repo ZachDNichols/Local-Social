@@ -9,7 +9,7 @@
     .navBar {
         height: 4em;
         background-color: hsl(0, 0%, 82%);
-        border-radius: 15px;
+        border-radius: 0px 0px 10px 10px;
     }
     .navList {
         text-decoration: none;
@@ -26,12 +26,8 @@
         flex-grow: 1;
     }
 
-    img {
-        margin-top: .5em;
-    }
-
     #logo {
-        
+        margin-top: .5em;
     }
 </style>
 <main>

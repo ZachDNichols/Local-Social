@@ -30,7 +30,7 @@
     color: rgb(0, 0, 0);
     background-color: hsl(0, 0%, 82%);
     border: 0px black solid;
-    border-radius: 25px;
+    border-radius: 10px;
     margin: 2em 1em;
     padding: 1.25em;
     box-shadow: 0px 0px .7em rgb(132, 132, 132);
@@ -43,7 +43,7 @@
 
 .image {
     width: 100%;
-    border-radius: 15px;
+    border-radius: 7px;
 }
 
 .nameHeader {
