@@ -26,12 +26,12 @@
 }
 
 .card {
-    width: 62%;
+    width: 70%;
     color: rgb(255, 255, 255);
-    background-color: hsl(0, 0%, 50%);
+    background-color: hsl(0, 0%, 40%);
     border: 0px black solid;
     border-radius: 10px;
-    margin: 2em 1em;
+    margin: 1em 2em;
     padding: 1.25em;
     box-shadow: 0px 0px .7em rgb(34, 34, 34);
 }
@@ -82,7 +82,7 @@
 }
 
 #notLikedContent {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     transform: scale(240%);
 }
 

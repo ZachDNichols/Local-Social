@@ -31,7 +31,7 @@
 
     let user =  {
         imageProfile: "https://cdn.pixabay.com/photo/2021/04/05/12/39/man-6153298_960_720.jpg",
-        userName: "Ethan",
+        userName: "EthanHenrickson",
         userId: 1234
     }
     
