@@ -3,23 +3,20 @@
 -->
 
 <script>
-    import { blur } from 'svelte/transition';
     export let userName = "Anonymous";
     export let description = "";
     export let imageSrc;
     export let userId;
     export let liked = false;
-    const org = liked;
 
     function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
     }
 
     function like() {
-        liked = !liked;
-        console.log(liked)
-        
+        liked = !liked;        
     }
+
 </script>
 
 <style>
@@ -30,8 +27,8 @@
 
 .card {
     width: 62%;
-    color: white;
-    background-color: hsl(0, 0%, 47%);
+    color: rgb(0, 0, 0);
+    background-color: hsl(0, 0%, 82%);
     border: 0px black solid;
     border-radius: 25px;
     margin: 2em 1em;
@@ -40,7 +37,7 @@
 }
 
 .card a {
-    color: white;
+    color: rgb(0, 0, 0);
     text-decoration: none;
 }
 
@@ -60,10 +57,10 @@
 
 .nameElement:hover {
     color: hsl(0, 100%, 77%);
-    transition: .3s;
+    transition: .1s;
 }
 .nameElement:not(:hover){
-    transition: .3s;
+    transition: .1s;
 }
 
 .growElement {
@@ -80,16 +77,12 @@
 }
 
 #likedContent {
-    transform: scale(270%);
     color: hsl(0, 100%, 77%);
-    transition: color 2s ease-out;
+    transform: scale(270%);
 }
 
 #notLikedContent {
-    transform: scale(240%);
-    color: white;
-    transition: color 2s ease-out;
-
+    color: rgb(0, 0, 0);
 }
 
 .descriptionElement {
@@ -98,13 +91,13 @@
 }
 
 #notLikedContent:hover {
+    color: hsl(0, 100%, 77%);
     transform: scale(270%);
-    transition: .2s;
 }
 
 #notLikedContent:not(:hover) {
+    transition: .05s ease-out;
     transform: scale(240%);
-    transition: .2s;
 }
 
 

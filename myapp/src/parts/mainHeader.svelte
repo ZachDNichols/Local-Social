@@ -8,7 +8,7 @@
     }
     .navBar {
         height: 4em;
-        background-color: hsl(185, 24%, 48%);
+        background-color: hsl(0, 0%, 82%);
         border-radius: 15px;
     }
     .navList {
@@ -29,6 +29,10 @@
     img {
         margin-top: .5em;
     }
+
+    #logo {
+        
+    }
 </style>
 <main>
     <body>
@@ -36,7 +40,7 @@
             <ul class="navList">
                 <li class="navItem">
                     <a href="">
-                        <img src="localSocialHorizontal.svg" alt="" height="45em">
+                        <img src="localSocialHorizontal.svg" alt="" height="45em" id="logo">
                     </a>
                 </li>
                 <li class="navItem grow"></li>
