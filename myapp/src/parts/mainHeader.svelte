@@ -3,6 +3,16 @@
     export let userName = "";
     export let userId = "";
 
+    let show = false;
+
+    function displayLogInSecOn(){
+        show = true;
+    }
+
+    function displayLogInSecOff(){
+        show = false;
+    }
+
 </script>
 <style>
 
@@ -12,6 +22,7 @@
         width: 0px !important;
         margin-right: 0px;
         transition: .2s;
+        padding-right: 0px;
     }
 }
     body{
@@ -70,6 +81,34 @@
         margin-top: .4em;
     }
 
+    #logIn {
+        display: block;
+        z-index: 2;
+        position: fixed;
+        top: 4.75em;
+        right: .75em;
+        width: 250px;
+        height: 300px;
+        color: white;
+        background-color: hsl(0, 0%, 40%);
+        text-align: right;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    #transparent {
+        display: block;
+        position: fixed;
+        top: 0px;
+        right: 4em;
+        background-color: none;
+        height: 4.75em;
+        width: 200px;
+        z-index: 2;
+        padding: 0px 10px;
+    }
+
+
 </style>
 <main>
     <body>
@@ -81,7 +120,7 @@
                     </a>
                 </li>
                 <li class="navItem grow"></li>
-                <li class="navItem"><a href="{userId}" style="font-size: 20px;">{userName}</a></li>
+                <li class="navItem" style="font-size: 20px; cursor:pointer;" on:mouseenter={displayLogInSecOn}>{userName}</li>
                 <li class="navItem">
                     <a href=".">
                         <img src="{imageProfile}" alt="" id="profileImage">
@@ -89,5 +128,13 @@
                 </li>
             </ul>
         </div>
+        {#if show}
+        <div on:mouseleave={displayLogInSecOff}>
+            <div id="transparent" ></div>
+            <div id="logIn">
+                <p>hello</p>
+            </div>
+        </div>
+        {/if}
     </body>
 </main>

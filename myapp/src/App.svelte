@@ -6,7 +6,7 @@
     import Profile from './parts/profile.svelte';
 
     let user1 = {
-        imageSrc: "https://petapixel.com/assets/uploads/2022/08/fdfs11-800x533.jpg",
+        imageSrc: "https://www.lukas-petereit.com/wp-content/uploads/2017/10/Rakotzbr%C3%BCcke-Bridge-Rakotz-Kromlau-Lake-Sun-Sunrise-Landscape-Reflection-Germany-Saxony-Travel-Photography-Nature-Photo-Spreewald-2.jpg",
         userName: "Ethan Henrickson",
         userId: 1,
         description: "A nice photo that I captured last summer in the lost city of Atlantis. Its probably one of my favorite photos",
