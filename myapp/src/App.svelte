@@ -40,13 +40,13 @@
 </script>
 <main>
     <MainHeader {...user}/>
-    <div class="space"></div>
     <NormalCard {...user1}/>
     <NormalCard {...user2}/>
     <NormalCard {...user3}/>
     <div class="space"></div>      
 </main> 
 <style>
+
     main {
         margin: 0px;
         background-color: hsl(0, 0%, 17%);

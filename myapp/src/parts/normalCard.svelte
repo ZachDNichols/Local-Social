@@ -38,7 +38,6 @@
 }
 
 .card a {
-    color: rgb(255, 255, 255);
     text-decoration: none;
 }
 
@@ -58,15 +57,21 @@
 
 .nameElement:hover {
     color: hsl(0, 100%, 77%);
-    transition: .1s;
+    transition: .15s;
+    cursor: pointer;
 }
-.nameElement:not(:hover){
-    transition: .1s;
+
+.nameElement:not(:hover) {
+    color: rgb(255, 255, 255);
+    transition: .15s;
 }
 
 .growElement {
     flex-grow: 1;
 }
+
+
+
 
 #buttonElement {
     border: 0px solid;
@@ -106,27 +111,27 @@
 
 
 #likedContentSaved {
-    margin-top: 10px;
+    margin-top: 8px;
     color: hsl(0, 100%, 77%);
-    transform: scale(230%) rotate(180deg);
+    transform: scale(220%) rotate(180deg);
 }
 
 #notLikedContentSaved {
-    margin-top: 10px;
+    margin-top: 8px;
     color: rgb(255, 255, 255);
-    transform: scale(230%);
+    transform: scale(220%);
 }
 
 #notLikedContentSaved:hover {
-    margin-top: 10px;
+    margin-top: 8px;
     color: hsl(0, 100%, 77%);
-    transform: scale(230%) rotate(180deg);
+    transform: scale(220%) rotate(180deg);
     transition: .2s;
 }
 
 #notLikedContentSaved:not(:hover) {
     transition: .2s ease-out;
-    transform: scale(200%) rotate(180deg);
+    transform: scale(205%) rotate(180deg);
 }
 
 

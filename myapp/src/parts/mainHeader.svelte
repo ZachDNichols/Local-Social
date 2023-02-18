@@ -37,10 +37,8 @@
     body{
         margin: 0px;
         padding: 0px;
-        position: fixed;
-        top: 0px;
     }
-
+    
     .navBar {
         height: 4em;
         background-color: hsl(0, 0%, 40%);
