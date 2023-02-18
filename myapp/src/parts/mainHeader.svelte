@@ -131,6 +131,10 @@
         background-color: hsl(0, 0%, 30%);
     }
 
+    #gap {
+        height: 25px;
+    }
+
 
 
 </style>
@@ -159,6 +163,7 @@
                 {#if !showLog}
                 <div id="textInfo">My Profile</div>
                 <div id="textInfo">My Location</div>
+                <div id="textInfo">Saved</div>
                 <div id="gap"></div>
                 <div id="textInfo">Log Out</div>
                 {:else}
