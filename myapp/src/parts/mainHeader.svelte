@@ -4,6 +4,16 @@
     export let userId = "";
 
     let show = false;
+    let showLog = false;
+
+    if (imageProfile === ""){
+        imageProfile = "blankProfile.webp"
+    }
+
+    if (userName === ""){
+        userName = "Anonymous";
+        showLog = true;
+    }
 
     function displayLogInSecOn(){
         show = true;
@@ -85,28 +95,47 @@
         display: block;
         z-index: 2;
         position: fixed;
-        top: 4.75em;
+        top: 4.5em;
         right: .75em;
-        width: 250px;
-        height: 300px;
         color: white;
         background-color: hsl(0, 0%, 40%);
         text-align: right;
         border-radius: 10px;
-        padding: 10px;
+        padding: 7px 7px;
     }
 
     #transparent {
-        display: block;
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+        align-items: center;
+
         position: fixed;
         top: 0px;
         right: 4em;
         background-color: none;
-        height: 4.75em;
+        height: 4.5em;
         width: 200px;
         z-index: 2;
         padding: 0px 10px;
     }
+
+    #textInfo {
+        padding: 2px .75em;
+        font-size: larger;
+        cursor: pointer;
+        border-radius: 5px;
+        border: 1px none;
+    }
+
+    #textInfo:hover{
+        background-color: hsl(0, 0%, 30%);
+    }
+
+    #gap{
+
+    }
+
 
 
 </style>
@@ -132,7 +161,14 @@
         <div on:mouseleave={displayLogInSecOff}>
             <div id="transparent" ></div>
             <div id="logIn">
-                <p>hello</p>
+                {#if !showLog}
+                <div id="textInfo">My Profile</div>
+                <div id="textInfo">My Location</div>
+                <div id="gap"></div>
+                <div id="textInfo">Log Out</div>
+                {:else}
+                <div id="textInfo">Log In / Sign Up</div>
+                {/if}
             </div>
         </div>
         {/if}

@@ -14,23 +14,23 @@
     }
 
     let user2 = {
-        imageSrc: "https://res.cloudinary.com/dk-find-out/image/upload/q_80,w_1440,f_auto/50491001_kupidw.png",
+        imageSrc: "https://www.kabino.com/wp-content/uploads/2020/08/NW-Stays-Aug-2020-blog-Waterfalls.jpg",
         userName: "Zach Nickolas",
         userId: 2,
-        description: "I love rats. They are cool.",
+        description: "An awesome photo of a waterfall I got up in the Pacific Northwest!",
         liked: true
     }
 
     let user3 = {
-        imageSrc: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFjZXxlbnwwfHwwfHw%3D&w=1000&q=80",
+        imageSrc: "https://cdn1.epicgames.com/ue/product/Screenshot/1-1920x1080-a58e6c53fee218623cb26ba39786d1e5.jpg?resize=1&w=1920",
         userName: "Random Dude",
         userId: 3,
-        description: "I hate rats. They suck!",
+        description: "I love mountains!",
         liked: false
     }
 
     let user =  {
-        imageProfile: "https://cdn.pixabay.com/photo/2021/04/05/12/39/man-6153298_960_720.jpg",
+        imageProfile: "",
         userName: "EthanHenrickson",
         userId: 1234
     }
