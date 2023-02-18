@@ -10,7 +10,8 @@
         userName: "Ethan Henrickson",
         userId: 1,
         description: "A nice photo that I captured last summer in the lost city of Atlantis. Its probably one of my favorite photos",
-        liked: false
+        liked: false,
+        saved: false
     }
 
     let user2 = {
@@ -18,7 +19,8 @@
         userName: "Zach Nickolas",
         userId: 2,
         description: "An awesome photo of a waterfall I got up in the Pacific Northwest!",
-        liked: true
+        liked: true,
+        saved:true,
     }
 
     let user3 = {
@@ -26,7 +28,8 @@
         userName: "Random Dude",
         userId: 3,
         description: "I love mountains!",
-        liked: false
+        liked: false,
+        saved: true
     }
 
     let user =  {

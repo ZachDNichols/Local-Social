@@ -8,12 +8,14 @@
     export let imageSrc;
     export let userId;
     export let liked = false;
-    let allowedLike = true;
+    export let saved = false;
 
     function like() {
-        if (allowedLike){
-            liked = !liked;        
-        }
+        liked = !liked;
+    }
+
+    function save(){
+        saved = !saved
     }
 
 </script>
@@ -66,13 +68,14 @@
     flex-grow: 1;
 }
 
-#likeButtonElement {
+#buttonElement {
     border: 0px solid;
     background-color: transparent !important;
     margin: 0px;
     padding: 0px .5rem 0px 0px;
     cursor: pointer;
     transition: .1s;
+    padding-right: 1.5em;
 }
 
 #likedContent {
@@ -102,6 +105,31 @@
 }
 
 
+#likedContentSaved {
+    margin-top: 10px;
+    color: hsl(0, 100%, 77%);
+    transform: scale(230%) rotate(180deg);
+}
+
+#notLikedContentSaved {
+    margin-top: 10px;
+    color: rgb(255, 255, 255);
+    transform: scale(230%);
+}
+
+#notLikedContentSaved:hover {
+    margin-top: 10px;
+    color: hsl(0, 100%, 77%);
+    transform: scale(230%) rotate(180deg);
+    transition: .2s;
+}
+
+#notLikedContentSaved:not(:hover) {
+    transition: .2s ease-out;
+    transform: scale(200%) rotate(180deg);
+}
+
+
 </style>
 
 <main>
@@ -112,7 +140,15 @@
                 <h3 class="nameElement">{userName}</h3>
             </a>
             <div class="growElement"></div>
-            <button type="button" id="likeButtonElement" on:click={like}>
+            <button type="button" id="buttonElement" on:click={save}>
+                {#if saved}
+                <div id="likedContentSaved">&#9751;</div>
+                {:else}
+                <div id="notLikedContentSaved">&#9750;</div>
+                {/if}
+            </button>
+            
+            <button type="button" id="buttonElement" on:click={like}>
                 {#if liked}
                     <div id="likedContent" >&#9829;</div>
                 {:else}
