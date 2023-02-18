@@ -3,18 +3,17 @@
 -->
 
 <script>
-    export let userName = "Anonymous";
+    export let userName = "";
     export let description = "";
     export let imageSrc;
     export let userId;
     export let liked = false;
-
-    function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-    }
+    let allowedLike = true;
 
     function like() {
-        liked = !liked;        
+        if (allowedLike){
+            liked = !liked;        
+        }
     }
 
 </script>

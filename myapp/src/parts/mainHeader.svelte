@@ -1,17 +1,16 @@
 <script>
-    export let imageProfile = "";
-    export let userName = "";
-    export let userId = "";
+    export let mainImageProfile = "";
+    export let mainUserName = "";
 
     let show = false;
     let showLog = false;
 
-    if (imageProfile === ""){
-        imageProfile = "blankProfile.webp"
+    if (mainImageProfile === ""){
+        mainImageProfile = "blankProfile.webp"
     }
 
-    if (userName === ""){
-        userName = "Anonymous";
+    if (mainUserName === ""){
+        mainUserName = "Anonymous";
         showLog = true;
     }
 
@@ -38,6 +37,8 @@
     body{
         margin: 0px;
         padding: 0px;
+        position: fixed;
+        top: 0px;
     }
 
     .navBar {
@@ -132,10 +133,6 @@
         background-color: hsl(0, 0%, 30%);
     }
 
-    #gap{
-
-    }
-
 
 
 </style>
@@ -149,10 +146,10 @@
                     </a>
                 </li>
                 <li class="navItem grow"></li>
-                <li class="navItem" style="font-size: 20px; cursor:pointer;" on:mouseenter={displayLogInSecOn}>{userName}</li>
+                <li class="navItem" style="font-size: 20px; cursor:pointer;" on:mouseenter={displayLogInSecOn}>{mainUserName}</li>
                 <li class="navItem">
                     <a href=".">
-                        <img src="{imageProfile}" alt="" id="profileImage">
+                        <img src="{mainImageProfile}" alt="" id="profileImage">
                     </a>
                 </li>
             </ul>

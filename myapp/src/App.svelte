@@ -30,21 +30,28 @@
     }
 
     let user =  {
-        imageProfile: "",
-        userName: "EthanHenrickson",
-        userId: 1234
+        mainImageProfile: "",
+        mainUserName: "EthanHenrickson",
     }
     
 </script>
 <main>
     <MainHeader {...user}/>
+    <div class="space"></div>
     <NormalCard {...user1}/>
     <NormalCard {...user2}/>
-    <NormalCard {...user3}/>       
+    <NormalCard {...user3}/>
+    <div class="space"></div>      
 </main> 
 <style>
     main {
         margin: 0px;
         background-color: hsl(0, 0%, 17%);
+    }
+
+    .space {
+        background-color: hsl(0, 0%, 17%);
+        width: 100%;
+        height: 3.75em;
     }
 </style>
