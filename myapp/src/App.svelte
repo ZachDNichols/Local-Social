@@ -6,33 +6,35 @@
     import Profile from './parts/profile.svelte';
 
     let user1 = {
-        imageSrc: "https://petapixel.com/assets/uploads/2022/08/fdfs11-800x533.jpg",
+        imageSrc: "https://www.lukas-petereit.com/wp-content/uploads/2017/10/Rakotzbr%C3%BCcke-Bridge-Rakotz-Kromlau-Lake-Sun-Sunrise-Landscape-Reflection-Germany-Saxony-Travel-Photography-Nature-Photo-Spreewald-2.jpg",
         userName: "Ethan Henrickson",
         userId: 1,
         description: "A nice photo that I captured last summer in the lost city of Atlantis. Its probably one of my favorite photos",
-        liked: false
+        liked: false,
+        saved: false
     }
 
     let user2 = {
-        imageSrc: "https://res.cloudinary.com/dk-find-out/image/upload/q_80,w_1440,f_auto/50491001_kupidw.png",
+        imageSrc: "https://www.kabino.com/wp-content/uploads/2020/08/NW-Stays-Aug-2020-blog-Waterfalls.jpg",
         userName: "Zach Nickolas",
         userId: 2,
-        description: "I love rats. They are cool.",
-        liked: true
+        description: "An awesome photo of a waterfall I got up in the Pacific Northwest!",
+        liked: true,
+        saved:true,
     }
 
     let user3 = {
-        imageSrc: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFjZXxlbnwwfHwwfHw%3D&w=1000&q=80",
+        imageSrc: "https://cdn1.epicgames.com/ue/product/Screenshot/1-1920x1080-a58e6c53fee218623cb26ba39786d1e5.jpg?resize=1&w=1920",
         userName: "Random Dude",
         userId: 3,
-        description: "I hate rats. They suck!",
-        liked: false
+        description: "I love mountains!",
+        liked: false,
+        saved: true
     }
 
     let user =  {
-        imageProfile: "https://cdn.pixabay.com/photo/2021/04/05/12/39/man-6153298_960_720.jpg",
-        userName: "Ethan",
-        userId: 1234
+        mainImageProfile: "",
+        mainUserName: "EthanHenrickson",
     }
     
 </script>
@@ -40,11 +42,19 @@
     <MainHeader {...user}/>
     <NormalCard {...user1}/>
     <NormalCard {...user2}/>
-    <NormalCard {...user3}/>       
+    <NormalCard {...user3}/>
+    <div class="space"></div>      
 </main> 
 <style>
+
     main {
         margin: 0px;
         background-color: hsl(0, 0%, 17%);
+    }
+
+    .space {
+        background-color: hsl(0, 0%, 17%);
+        width: 100%;
+        height: 3.75em;
     }
 </style>

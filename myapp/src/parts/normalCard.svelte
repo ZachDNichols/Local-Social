@@ -3,18 +3,19 @@
 -->
 
 <script>
-    export let userName = "Anonymous";
+    export let userName = "";
     export let description = "";
     export let imageSrc;
     export let userId;
     export let liked = false;
-
-    function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-    }
+    export let saved = false;
 
     function like() {
-        liked = !liked;        
+        liked = !liked;
+    }
+
+    function save(){
+        saved = !saved
     }
 
 </script>
@@ -26,18 +27,17 @@
 }
 
 .card {
-    width: 62%;
+    width: 70%;
     color: rgb(255, 255, 255);
-    background-color: hsl(0, 0%, 50%);
+    background-color: hsl(0, 0%, 40%);
     border: 0px black solid;
     border-radius: 10px;
-    margin: 2em 1em;
+    margin: 1em 2em;
     padding: 1.25em;
     box-shadow: 0px 0px .7em rgb(34, 34, 34);
 }
 
 .card a {
-    color: rgb(255, 255, 255);
     text-decoration: none;
 }
 
@@ -57,23 +57,30 @@
 
 .nameElement:hover {
     color: hsl(0, 100%, 77%);
-    transition: .1s;
+    transition: .15s;
+    cursor: pointer;
 }
-.nameElement:not(:hover){
-    transition: .1s;
+
+.nameElement:not(:hover) {
+    color: rgb(255, 255, 255);
+    transition: .15s;
 }
 
 .growElement {
     flex-grow: 1;
 }
 
-#likeButtonElement {
+
+
+
+#buttonElement {
     border: 0px solid;
     background-color: transparent !important;
     margin: 0px;
     padding: 0px .5rem 0px 0px;
     cursor: pointer;
     transition: .1s;
+    padding-right: 1.5em;
 }
 
 #likedContent {
@@ -82,7 +89,7 @@
 }
 
 #notLikedContent {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     transform: scale(240%);
 }
 
@@ -103,6 +110,31 @@
 }
 
 
+#likedContentSaved {
+    margin-top: 8px;
+    color: hsl(0, 100%, 77%);
+    transform: scale(220%) rotate(180deg);
+}
+
+#notLikedContentSaved {
+    margin-top: 8px;
+    color: rgb(255, 255, 255);
+    transform: scale(220%);
+}
+
+#notLikedContentSaved:hover {
+    margin-top: 8px;
+    color: hsl(0, 100%, 77%);
+    transform: scale(220%) rotate(180deg);
+    transition: .2s;
+}
+
+#notLikedContentSaved:not(:hover) {
+    transition: .2s ease-out;
+    transform: scale(205%) rotate(180deg);
+}
+
+
 </style>
 
 <main>
@@ -113,7 +145,15 @@
                 <h3 class="nameElement">{userName}</h3>
             </a>
             <div class="growElement"></div>
-            <button type="button" id="likeButtonElement" on:click={like}>
+            <button type="button" id="buttonElement" on:click={save}>
+                {#if saved}
+                <div id="likedContentSaved">&#9751;</div>
+                {:else}
+                <div id="notLikedContentSaved">&#9750;</div>
+                {/if}
+            </button>
+            
+            <button type="button" id="buttonElement" on:click={like}>
                 {#if liked}
                     <div id="likedContent" >&#9829;</div>
                 {:else}
