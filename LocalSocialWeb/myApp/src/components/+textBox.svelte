@@ -1,16 +1,58 @@
 <script>
+    import { authStore } from "../store/store";
+    import { db, storage } from "../lib/firebase/firebase";
+    import { doc,setDoc } from "firebase/firestore";
+    import { getDownloadURL, ref } from "firebase/storage";
+
+    
+    
     export let name = 'Anonymous';
     export let profileImg = 'blankProfile.webp';
     export let body = 'A basic description';
-    export let likes = 0;
+    export let likes = [];
+    export let user = "";
+    export let tag = ""
     let likedHeart = false
+    const pathReference = ref(storage, `images/${user}`)
 
-    function likeHeartFunc(){
+    getDownloadURL(pathReference).then((image) => {
+    profileImg = image
+    }).catch((error) => {
+    switch (error.code) {
+      case 'storage/object-not-found':
+        console.log("storage/object-not-found error")
+        break;
+      case 'storage/unauthorized':
+        console.log("storage/unauthorized error")
+        break;
+      case 'storage/canceled':
+        console.log("storage/calceled error")
+        break;
+      case 'storage/unknown':
+        console.log("storage/unknown error")
+        break;
+    }})
+
+
+    if (likes.includes($authStore.user.uid)){
+        likedHeart = true
+    }
+
+    let ref2 = doc(db, "mainPosts", tag)
+
+    async function likeHeartFunc(){
         likedHeart = !likedHeart;
         if (likedHeart){
-            likes += 1
+            await setDoc(ref2, {likes: [...likes, $authStore.user.uid]}, {merge: true})
+            likes = [...likes, $authStore.user.uid]
         } else {
-            likes -= 1
+            await setDoc(ref2, {likes: likes.filter((val) => {
+                if(val != $authStore.user.uid){
+                    return val
+                }}
+                )}, {merge: true})
+            likes.pop()
+            likes = likes
         }
     }
 
@@ -32,7 +74,7 @@
     </div>
     <div class="footer">
         {#if likes != 0}
-        <span class="likeCount">{likes} {likes == 1 ? "Like" : "Likes"}</span>
+        <span class="likeCount">{likes.length} {likes.length == 1 ? "Like" : "Likes"}</span>
         {/if}
         <span class={likedHeart ? "likedHeart" : "likeHeart"} on:click={likeHeartFunc} on:keydown={() => {}}>
             &#9829
@@ -98,6 +140,8 @@
         border: none;
         border-radius: 50%;
         width: 50px;
+        height: 50px;
+        object-fit: cover;
     }
 
     .likeCount {

@@ -3,12 +3,25 @@
     import { onMount } from "svelte";
     import { auth, db } from "../lib/firebase/firebase";
     import { doc, getDoc, getDocFromServer, setDoc } from "firebase/firestore"
-    import { authStore } from "../store/store"
+    import { authStore, userNameF, userNameL } from "../store/store"
 
-
+    
     const nonAuthRoutes = ["/"]
+    
+    let first;
+    let last;
+
+    userNameF.subscribe((value) => {
+        first = value
+    })
+
+    userNameL.subscribe((value) => {
+        last = value
+    })
+
 
     onMount(() => {
+
         console.log('Mounting')
         const unsubscribe = auth.onAuthStateChanged(async (user) => {
             const currentPath = window.location.pathname
@@ -27,14 +40,12 @@
                 return
             }
 
-
             let dataToSetToStore;
             const docRef = doc(db, "user", user.uid);
             const docSnap = await getDocFromServer(docRef);
             if (!docSnap.exists()) {
-
+                dataToSetToStore = {firstName: "", lastName: "", posts: [], friends: [], email: user.email}
                 const userRef = doc(db, "user", user.uid);
-                dataToSetToStore = {email: user.email, firstName: "", lastName: "", posts: [1,3], friends: [],};
                 await setDoc(userRef, dataToSetToStore, {merge: true})
 
             } else {

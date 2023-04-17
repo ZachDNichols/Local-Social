@@ -1,34 +1,40 @@
 <script>
-    import { authStore } from "../../store/store";
+    import { authStore, userNameF, userNameL } from "../../store/store";
     import TextBox from "../../components/+textBox.svelte";
     import { auth, db } from "../../lib/firebase/firebase";
     import { collection, getDocs, setDoc, query, orderBy, limit } from "firebase/firestore";
     import { onMount } from "svelte";
 
     $: loading = true;
+    $: loading2 = true;
     $: mainContArray = []
 
-    let jack;
 
-
-
+    
     onMount(()=>{
         async function retrieveContent(){
             const q = query(collection(db, "mainPosts"), orderBy("date"), limit(10))
             const data = await getDocs(q);
-            data.forEach((doc) => {
-                mainContArray = [...mainContArray, doc.data()];
-                
-            });
-            return
+            
+            try {
+                data.forEach((doc) => {
+                    mainContArray = [...mainContArray, doc.data()];
+                    
+                    return
+                });
+            } catch {
+                console.log('No Data to Display')
+            }
         }
         retrieveContent().then(() => {
-            loading = false
+            loading2 = false
         })
     })
-    authStore.subscribe((curr) => {
-        jack = curr.data.posts;
-    });
+
+    $: if($authStore.user && !loading2){
+                loading = false
+            }
+    
 
 
 </script>

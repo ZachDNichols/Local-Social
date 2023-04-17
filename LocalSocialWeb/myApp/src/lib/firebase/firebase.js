@@ -3,6 +3,7 @@
 import { deleteApp, getApp, getApps, initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth'
+import { getStorage } from "firebase/storage"
 
 // TODO: Add SDKs for Firebase products that you want to use
 
@@ -12,17 +13,13 @@ import { getAuth } from 'firebase/auth'
 // Your web app's Firebase configuration
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA4ooJ36LKxcjjlkv5gdM-wi29b-uOVtcY",
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID
 
-  authDomain: "localsocial-e3bc8.firebaseapp.com",
-
-  projectId: "localsocial-e3bc8",
-
-  storageBucket: "localsocial-e3bc8.appspot.com",
-
-  messagingSenderId: "803475658531",
-
-  appId: "1:803475658531:web:6dd0fbb4532f07531a1e96"
 };
 
 
@@ -39,3 +36,4 @@ if (!getApps().length) {
 
 export const db = getFirestore(firebaseApp)
 export const auth = getAuth(firebaseApp)
+export const storage = getStorage(firebaseApp)

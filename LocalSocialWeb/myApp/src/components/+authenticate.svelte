@@ -1,10 +1,8 @@
 <script>
-import { authHandlers } from "../store/store"
+import { authHandlers, userNameF, userNameL, authStore } from "../store/store"
 
-    let lastName1 = "";
-    let firstName1 = "";
-
-    
+    let firstName = "";
+    let lastName = "";
 
     let passwordWrong = false;
     
@@ -24,22 +22,24 @@ import { authHandlers } from "../store/store"
         }
 
     async function handleAuth(){
-
+        
         error = false;
-
         if (authenticating){
             return
         }
         if (!email || !password || (!logIn && !reenterPassword)) {
             error = true;
         }
-        authenticating = true;
+        
 
+        authenticating = true;
+        
         try {
             if (logIn) {
                 await authHandlers.login(email, password)
             } else {
-                await authHandlers.signup(email, password) 
+                await authHandlers.signup(email, password)
+
             }
         } catch (err) {
             console.log("The was an auth error", err)
@@ -52,6 +52,7 @@ import { authHandlers } from "../store/store"
     function logInChange() {
         logIn = !logIn
     }
+
 </script>
 
 
@@ -73,19 +74,11 @@ import { authHandlers } from "../store/store"
                 {#if error}
                         <p><span class="errorMessage">The email or password is incorrect</span></p>
                 {/if}
-                {#if !logIn}
                 <label for="">
-                    <input type="text" name="" id="" placeholder="First Name" bind:value={firstName1}>
+                    <input type="email" name="" id="email" placeholder="Email" bind:value={email}>
                 </label>
                 <label for="">
-                    <input type="text" name="" id="" placeholder="Last Name" bind:value={lastName1}>
-                </label>
-                {/if}
-                <label for="">
-                    <input type="email" name="" id="" placeholder="Email" bind:value={email}>
-                </label>
-                <label for="">
-                    <input type="password" name="" id="" placeholder="Password" bind:value={password} on:keydown={(button) => {if(button.key == "Enter"){handleAuth()}}}>
+                    <input type="password" name="" id="password" placeholder="Password" bind:value={password} on:keydown={(button) => {if(button.key == "Enter"){handleAuth()}}}>
                 </label>
                 {#if !logIn}
                     <label for="">
@@ -95,7 +88,7 @@ import { authHandlers } from "../store/store"
                 {#if passwordWrong}
                     <p class="regError">The passwords don't match.</p>
                 {/if}
-                <button type="button" on:click={handleAuth}>
+                <button type="button" on:click={handleAuth} id="submitButton">
                     {#if authenticating}
                     <i class="fa-solid fa-spinner spin loadingSpinner"/>
                     {:else}
